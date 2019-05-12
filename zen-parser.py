@@ -6,8 +6,8 @@ import urllib.request
 # =================================
 # =================================
 # INPUT
-main_html_file_path = "D:\\Downloads\\Володя механик _ Яндекс Дзен.html"
-channel_name = "VolodyaAutomekhanik"
+main_html_file_path = ""
+channel_name = ""
 
 # OUTPUT
 docx_filename = ""
