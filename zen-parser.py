@@ -34,10 +34,10 @@ with open(main_html_file_path, 'rb') as fobj:
 g = Grab()
 g.setup_document(f)
 
-all_publications = g.doc.select('//div[@class="feed__item _size_small"]')
+all_publications = g.doc.select('//div[@class="feed__item-wrap _size_small"]')
 
 xpath_name = '//div[@class="clamp__text-expand"]'
-xpath_link = '//a[@class="doc__content"]//@href'
+xpath_link = '//a[@class="card-image-view__clickable"]//@href'
 xpath_publication_body = '//div[@class="article__middle"]'
 xpath_publication_text = '//div[@class="article__body"]//p'
 
@@ -69,6 +69,7 @@ for publication in all_publications:
     except Exception as e:
         print("\tError: " + str(e))
         print("\tThis link maybe not be publication!")
+        i += 1
         continue
 
     print("\tNumber of paragraph in publication" + str(i) + ": " + str(len(publication_multi_text)-1))
@@ -91,7 +92,7 @@ for publication in all_publications:
     document.save(docx_filename)
 
     print("\tAnti-сaptcha waiting...")
-    time.sleep(3)
+    time.sleep(5)
 
     print()
     i += 1
